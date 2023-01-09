@@ -1,3 +1,15 @@
+---
+title: Azure IoT Edge 101
+description: End-to-end review of IoT Edge concepts and considerations.
+author: Raul Alarcon
+
+ms.author: ralarcon
+ms.date: 01/09/2023
+ms.topic: conceptual
+ms.service: iot-edge
+services: iot-edge
+---
+
 # Azure IoT Edge 101
 
 [Introduction](#introduction)
@@ -122,7 +134,6 @@ registry. Let’s have a detailed review of the previous IoT concepts:
   connect, there must be an entry for that device or module in the IoT
   hub's identity registry. A device or module authenticates with the IoT
   hub based on credentials stored in the identity registry.
-
 The IoT Hub supports two methods of authentication between the device
 and the IoT Hub: SAS token-based authentication or X.509 certificate
 authentication.
@@ -132,7 +143,6 @@ authentication.
   the TLS protocol are currently supported, namely versions 1.0, 1.1,
   and 1.2. TLS 1.0 and 1.1 are considered legacy and are planned for
   [deprecation](https://learn.microsoft.com/azure/iot-hub/iot-hub-tls-deprecating-1-0-and-1-1).
-
 Typically, IoT devices send telemetry from the sensors to back-end
 services in the cloud. However, other types of communication are
 possible, such as a back-end service sending commands to your devices.
@@ -171,7 +181,6 @@ possible, such as a back-end service sending commands to your devices.
   synchronizes its state with the desired properties, the **device set
   the reported properties** accordingly, so the solution backend can
   read them or received the notifications.
-
 For further information, see [Understand Azure IoT Hub device twins \|
 Microsoft
 Learn](https://learn.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins)
@@ -183,7 +192,6 @@ Learn](https://learn.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins)
   configurations, and conditions. Azure IoT Hub maintains a module twin
   for each module that you connect to IoT Hub, no matter if it is an
   edge device or a regular one.
-
 For further information, see [Understand Azure IoT Hub module twins \|
 Microsoft
 Learn](https://learn.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins)
@@ -981,7 +989,7 @@ The following table contains a summary of the recommendations:
 |                         | Configure communication through a proxy                  | Helpful   |
 | Solution Management     | Set up logs and diagnostics                              | Helpful   |
 |                         | Set up default logging driver                            | Helpful   |
-|                         | Consider teste and CI/CD pipelines                       | Helpful   |
+|                         | Consider test and CI/CD pipelines                       | Helpful   |
 | Security Considerations | Manage access to your container registry                 | Important |
 |                         | Limit container access to host resources                 | Important |
 
@@ -1020,13 +1028,16 @@ following commands from shell:
 </colgroup>
 <thead>
 <tr class="header">
-<th>Verify IoT Edge status</th>
-<th><p>$ sudo iotedge system status</p>
-<p><img src="./media/image9.png"
-style="width:3.35419in;height:1.01042in" /></p></th>
+<th colspan="2"><p>Step by step instructions:</p></th>
 </tr>
 </thead>
 <tbody>
+<tr class="even">
+<td>Verify IoT Edge status</td>
+<td><p>$ sudo iotedge system status</p>
+<p><img src="./media/image9.png"
+style="width:3.35419in;height:1.01042in" /></p></td>
+</tr>
 <tr class="odd">
 <td>Check deployed modules</td>
 <td><p><strong>$ sudo iotedge system logs</strong></p>
@@ -1039,12 +1050,7 @@ style="width:4.96358in;height:0.63542in" /></p></td>
 -f</strong></p>
 <p><img src="./media/image11.png"
 style="width:4.53477in;height:1.54345in" /></p></td>
-</tr>
 <tr class="odd">
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
 <td>Now use the ‘iotedge check’ command to verify the connectivity and
 production readiness of this IoT Edge device:</td>
 <td><p><strong>$ sudo iotedge check</strong></p>
@@ -1102,15 +1108,19 @@ issues:
 </colgroup>
 <thead>
 <tr class="header">
-<th colspan="2"><p>DNS &amp; Logs Policy</p>
+<th colspan="2"><p>Step by step instructions:</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="even">
+<td colspan="2"><p>DNS &amp; Logs Policy</p>
 <p>These issues can be fixed by adjusting the global configuration for
 the container engine or by specifying the configuration for each of the
 modules by using the <em>createOptions</em> (container create options)
 in the deployment manifest. We are going to use the global
 approach.</p></th>
+</td>
 </tr>
-</thead>
-<tbody>
 <tr class="odd">
 <td>Add or edit a <em>daemon.json</em> file in the <em>/etc/docker</em>
 directory.</td>
