@@ -885,7 +885,6 @@ operates in offline mode:
     your devices to operate completely disconnected, you will need to
     make considerations like message time to leave (TTL), persistent
     storage capacity, logging retention, etc.
-
 If you want to extend these capabilities to downstream devices, you need
 to register the parent-child relations and route the device-to-cloud
 communications from the downstream devices thru the parent as a gateway
@@ -905,7 +904,6 @@ communications from the downstream devices thru the parent as a gateway
     to the IoT Hub in the same order in which they were stored, the
     desired and reported properties are reconciled, and the parent-child
     relationships are updated.
-
 To ensure a smooth and reliable offline operation of your edge devices
 you need to ensure that your devices can operate properly during the
 maximum planned offline duration. Consider the following:
@@ -915,7 +913,6 @@ maximum planned offline duration. Consider the following:
   one-time sync. However, storage of messages depends on the time to
   live (TTL) setting and the available disk space for storing the
   messages.
-
 By default, messages and module state information are stored in the IoT
 Edge hub’s local container filesystem. For improved reliability,
 especially operating offline, it is recommended to use dedicated storage
