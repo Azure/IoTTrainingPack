@@ -1,81 +1,42 @@
 # Azure IoT Edge 101
 
-[Azure IoT Edge 101 [1](#_Toc124169604)](#_Toc124169604)
+[Introduction](#introduction)
 
-[Introduction [2](#introduction)](#introduction)
+[IoT Concepts](#iot-concepts)
 
-[IoT Concepts [2](#iot-concepts)](#iot-concepts)
+[What is Azure IoT Edge](#what-is-azure-iot-edge)
 
-[What is Azure IoT Edge
-[4](#what-is-azure-iot-edge)](#what-is-azure-iot-edge)
+* [Intelligent edge devices](#intelligent-edge-devices)
 
-[Intelligent edge devices
-[5](#intelligent-edge-devices)](#intelligent-edge-devices)
+* [Azure IoT Edge components](#azure-iot-edge-components)
 
-[Azure IoT Edge components
-[5](#azure-iot-edge-components)](#azure-iot-edge-components)
+* [IoT Edge Modules](#iot-edge-modules)
 
-[IoT Edge Modules [5](#iot-edge-modules)](#iot-edge-modules)
+* [The IoT Edge Runtime](#the-iot-edge-runtime)
 
-[Artificial Intelligence at the edge
-[5](#artificial-intelligence-at-the-edge)](#artificial-intelligence-at-the-edge)
+* [IoT Edge and certificates](#iot-edge-and-certificates)
 
-[Bring your own code [6](#bring-your-own-code)](#bring-your-own-code)
+* [Azure IoT Edge supported systems](#azure-iot-edge-supported-systems)
 
-[The IoT Edge Runtime [6](#the-iot-edge-runtime)](#the-iot-edge-runtime)
+* [Show IoT Edge in action](#show-iot-edge-in-action)
 
-[IoT Edge Agent [7](#iot-edge-agent)](#iot-edge-agent)
+[Create and manage IoT Edge devices](#create-and-manage-iot-edge-devices)
 
-[IoT Edge Hub [8](#iot-edge-hub)](#iot-edge-hub)
+* [Choose your target platform](#choose-your-target-platform)
 
-[IoT Edge Security Manager
-[9](#iot-edge-security-manager)](#iot-edge-security-manager)
+* [Device setup and provisioning](#device-setup-and-provisioning)
 
-[IoT Edge and certificates
-[9](#iot-edge-and-certificates)](#iot-edge-and-certificates)
+* [Limits and restrictions](#Limits-and-restrictions)
 
-[Azure IoT Edge supported systems
-[12](#azure-iot-edge-supported-systems)](#azure-iot-edge-supported-systems)
+* [Custom Modules](#custom-modules)
 
-[Show IoT Edge in action
-[13](#show-iot-edge-in-action)](#show-iot-edge-in-action)
+* [Offline Capabilities](#offline-capabilities)
 
-[Create and manage IoT Edge devices
-[14](#create-and-manage-iot-edge-devices)](#create-and-manage-iot-edge-devices)
+* [Production deployment checklist](#production-deployment-checklist)
 
-[Choose your target platform
-[14](#choose-your-target-platform)](#choose-your-target-platform)
+[Sample: Check your IoT Edge device production readiness](#sample-check-your-iot-edge-device-production-readiness)
 
-[Device setup and provisioning
-[14](#device-setup-and-provisioning)](#device-setup-and-provisioning)
-
-[Single device provisioning
-[14](#single-device-provisioning)](#single-device-provisioning)
-
-[Devices provisioning at scale
-[15](#devices-provisioning-at-scale)](#devices-provisioning-at-scale)
-
-[Authentication methods
-[15](#authentication-methods)](#authentication-methods)
-
-[Keep in mind the limits and restrictions
-[16](#keep-in-mind-the-limits-and-restrictions)](#keep-in-mind-the-limits-and-restrictions)
-
-[Custom Modules [16](#custom-modules)](#custom-modules)
-
-[Module Client [16](#module-client)](#module-client)
-
-[Offline Capabilities
-[17](#offline-capabilities)](#offline-capabilities)
-
-[Production deployment checklist
-[18](#production-deployment-checklist)](#production-deployment-checklist)
-
-[Sample: Check your IoT Edge device production readiness
-[19](#sample-check-your-iot-edge-device-production-readiness)](#sample-check-your-iot-edge-device-production-readiness)
-
-[Appendix: Helpful tooling
-[26](#appendix-helpful-tooling)](#appendix-helpful-tooling)
+[Appendix: Helpful tooling](#appendix-helpful-tooling)
 
 # Introduction
 
@@ -830,7 +791,7 @@ other two.
   with DPS group enrollments and is faster to get started but is not as
   secure as the previous ones.
 
-## Keep in mind the limits and restrictions
+## Limits and restrictions
 
 One thing you need to keep in mind while designing your IoT Edge device
 as part of your IoT solution is the inherent limitations and
