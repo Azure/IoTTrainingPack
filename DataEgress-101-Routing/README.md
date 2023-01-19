@@ -11,7 +11,7 @@ Custom functionality which processes data or messages sent from devices to IoT H
 
 ![DataEgressOverview](./img/DateEgressOverview.png)  
 
-## TL;DR
+### TL;DR
 
 This repository showcases:
 
@@ -19,6 +19,11 @@ This repository showcases:
 * enriching the data with information from the device's Azure IoT Hub Device Twin
 * routing all incoming messages to a custom endpoint (Azure Blob Storage)
 * routing selected incoming messages based on a query to a custom endpoint (Azure Bob Storage)
+
+### Watch the video / Get the presentation
+
+[![Watch the video](img/YTVideo.png)](https://www.youtube.com/watch?v=EBpzLrEx5gg)
+[Get the presentation](media/IoTTrainingKit-DataEgress-Push.pdf)
 
 ## IoT Hub Functionality
 
