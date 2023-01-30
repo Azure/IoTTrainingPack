@@ -134,7 +134,8 @@ registry. Let’s have a detailed review of the previous IoT concepts:
   connect, there must be an entry for that device or module in the IoT
   hub's identity registry. A device or module authenticates with the IoT
   hub based on credentials stored in the identity registry.
-The IoT Hub supports two methods of authentication between the device
+
+  The IoT Hub supports two methods of authentication between the device
 and the IoT Hub: SAS token-based authentication or X.509 certificate
 authentication.
 
@@ -143,7 +144,8 @@ authentication.
   the TLS protocol are currently supported, namely versions 1.0, 1.1,
   and 1.2. TLS 1.0 and 1.1 are considered legacy and are planned for
   [deprecation](https://learn.microsoft.com/azure/iot-hub/iot-hub-tls-deprecating-1-0-and-1-1).
-Typically, IoT devices send telemetry from the sensors to back-end
+
+  Typically, IoT devices send telemetry from the sensors to back-end
 services in the cloud. However, other types of communication are
 possible, such as a back-end service sending commands to your devices.
 
@@ -181,7 +183,8 @@ possible, such as a back-end service sending commands to your devices.
   synchronizes its state with the desired properties, the **device set
   the reported properties** accordingly, so the solution backend can
   read them or received the notifications.
-For further information, see [Understand Azure IoT Hub device twins \|
+
+    For further information, see [Understand Azure IoT Hub device twins \|
 Microsoft
 Learn](https://learn.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins)
 
@@ -192,7 +195,8 @@ Learn](https://learn.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins)
   configurations, and conditions. Azure IoT Hub maintains a module twin
   for each module that you connect to IoT Hub, no matter if it is an
   edge device or a regular one.
-For further information, see [Understand Azure IoT Hub module twins \|
+
+    For further information, see [Understand Azure IoT Hub module twins \|
 Microsoft
 Learn](https://learn.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins)
 
@@ -508,8 +512,8 @@ Using Root CA certs and Intermediate CAs create a certificate trust
 chain, where a certain device or machine which trust a Root CA or an
 Intermediate CA then trust the certificates that has been generated
 using that Root CA or the Intermediate CAs, creating a trust chain:  
-<img src="./media/image5.png" style="width:6.06664in;height:2.72351in"
-alt="Diagram Description automatically generated" />
+<img src="./media/image5.png"
+style="width:5.55243in;height:2.47222in" />
 
 There are different certificates used by an IoT Edge device:
 
@@ -885,6 +889,7 @@ operates in offline mode:
     your devices to operate completely disconnected, you will need to
     make considerations like message time to leave (TTL), persistent
     storage capacity, logging retention, etc.
+
 If you want to extend these capabilities to downstream devices, you need
 to register the parent-child relations and route the device-to-cloud
 communications from the downstream devices thru the parent as a gateway
@@ -904,6 +909,7 @@ communications from the downstream devices thru the parent as a gateway
     to the IoT Hub in the same order in which they were stored, the
     desired and reported properties are reconciled, and the parent-child
     relationships are updated.
+
 To ensure a smooth and reliable offline operation of your edge devices
 you need to ensure that your devices can operate properly during the
 maximum planned offline duration. Consider the following:
@@ -913,6 +919,7 @@ maximum planned offline duration. Consider the following:
   one-time sync. However, storage of messages depends on the time to
   live (TTL) setting and the available disk space for storing the
   messages.
+
 By default, messages and module state information are stored in the IoT
 Edge hub’s local container filesystem. For improved reliability,
 especially operating offline, it is recommended to use dedicated storage
@@ -986,7 +993,7 @@ The following table contains a summary of the recommendations:
 |                         | Configure communication through a proxy                  | Helpful   |
 | Solution Management     | Set up logs and diagnostics                              | Helpful   |
 |                         | Set up default logging driver                            | Helpful   |
-|                         | Consider test and CI/CD pipelines                       | Helpful   |
+|                         | Consider teste and CI/CD pipelines                       | Helpful   |
 | Security Considerations | Manage access to your container registry                 | Important |
 |                         | Limit container access to host resources                 | Important |
 
@@ -1013,10 +1020,9 @@ Edge Device, providing detailed information about:
 
 This sample is based on the [Quickstart: Deploy your first IoT Edge
 Module to a virtual Linux
-device](https://learn.microsoft.com/azure/iot-edge/quickstart-linux?view=iotedge-1.4).
-
-Before starting, verify IoT Edge is up & running by executing the
-following commands from shell:
+device](https://learn.microsoft.com/azure/iot-edge/quickstart-linux?view=iotedge-1.4),
+so before starting, verify IoT Edge is up & running by executing the
+following commands from shell.
 
 <table>
 <colgroup>
@@ -1029,24 +1035,25 @@ following commands from shell:
 </tr>
 </thead>
 <tbody>
-<tr class="even">
+<tr class="odd">
 <td>Verify IoT Edge status</td>
-<td><p>$ sudo iotedge system status</p>
+<td><p><strong>$ sudo iotedge system status</strong></p>
 <p><img src="./media/image9.png"
 style="width:3.35419in;height:1.01042in" /></p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Check deployed modules</td>
-<td><p><strong>$ sudo iotedge system logs</strong></p>
+<td><p><strong>$ sudo iotedge list</strong></p>
 <p><img src="./media/image10.png"
 style="width:4.96358in;height:0.63542in" /></p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Check telemetry sent</td>
 <td><p><strong>$ sudo iotedge logs SimulatedTemperatureSensor
 -f</strong></p>
 <p><img src="./media/image11.png"
 style="width:4.53477in;height:1.54345in" /></p></td>
+</tr>
 <tr class="odd">
 <td>Now use the ‘iotedge check’ command to verify the connectivity and
 production readiness of this IoT Edge device:</td>
@@ -1095,8 +1102,8 @@ end up in the following documentation: [Use IoT Edge device local
 storage from a module - Azure IoT Edge \| Microsoft
 Learn](https://learn.microsoft.com/en-us/azure/iot-edge/how-to-access-host-storage-from-module?view=iotedge-1.4).
 
-Now, following the guidance provided, we are going to fix the identified
-issues:
+Now, following the guidance provided, we are going to fix each of the
+identified issues.
 
 <table>
 <colgroup>
@@ -1109,48 +1116,46 @@ issues:
 </tr>
 </thead>
 <tbody>
-<tr class="even">
-<td colspan="2"><p>DNS &amp; Logs Policy</p>
+<tr class="odd">
+<td colspan="2"><p>DNS &amp; Logs Policies:</p>
 <p>These issues can be fixed by adjusting the global configuration for
 the container engine or by specifying the configuration for each of the
-modules by using the <em>createOptions</em> (container create options)
-in the deployment manifest. We are going to use the global
-approach.</p></th>
-</td>
+modules by using the createOptions (container create options) in the
+deployment manifest. We are going to use the global approach.</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Add or edit a <em>daemon.json</em> file in the <em>/etc/docker</em>
 directory.</td>
 <td><p><strong>$ sudo vi /etc/docker/daemon.json</strong></p>
 <p><img src="./media/image13.png"
 style="width:4.02607in;height:0.66146in" /></p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Add the following content to define the DNS and local logging driver
 configuration.</td>
 <td><img src="./media/image14.png"
 style="width:4.0477in;height:1.54705in" /></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Restart the container engine for the updates to take effect.</td>
 <td><p><strong>$ sudo systemctl restart docker</strong></p>
 <p><img src="./media/image15.png"
 style="width:4.3553in;height:1.79123in"
 alt="Text Description automatically generated" /></p></td>
 </tr>
-<tr class="even">
-<td colspan="2"><p>Modules storage configuration</p>
+<tr class="odd">
+<td colspan="2"><p>Modules storage configuration:</p>
 <p>We will be configuring the modules to use the host storage. To do so
 we need to prepare the host folders we will be using and, then, set up
 the modules configuration in the deployment manifest.</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Create host folders.</td>
 <td><p><strong>$ mkdir /tmp/edgeAgent</strong></p>
 <p><strong>$ mkdir /tmp/edgeAgent</strong></p>
 <p><strong>$ mkdir /tmp/tempSensor</strong></p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>The system modules do not require permissions handling as per the
 automatic <a
 href="https://learn.microsoft.com/azure/iot-edge/how-to-access-host-storage-from-module?view=iotedge-1.4#automatic-host-system-permissions-management">system
@@ -1160,37 +1165,37 @@ the correct permissions</a> for the TemperatureModule folder.</td>
 <td><p><strong>$ sudo chown 1000 /tmp/tempSensor</strong></p>
 <p><strong>$ sudo chmod 700 /tmp/tempSensor</strong></p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Now, from the Azure Porta, open the edge device configuration and
 click on “Set Modules”.</td>
 <td><img src="./media/image16.png"
 style="width:3.20861in;height:1.77515in" /></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Click on “Runtime Settings” to provide the configuration for the
 Edge Agent and Edge Hub modules.</td>
 <td><img src="./media/image17.png"
 style="width:3.0586in;height:1.60014in" /></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>For the Edge Agent, define the <em>storageFolder</em> environment
 variable pointing to the module storage path <em>/tmp/storage</em></td>
 <td><img src="./media/image18.png"
 style="width:4.25393in;height:1.33068in" /></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Now define the Container Create Options to bind the module storage
 path to the host storage folder.</td>
 <td><img src="./media/image19.png"
 style="width:4.45953in;height:1.6489in" /></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Repeat the steps for the Edge Hub. First, the environment variable
 pointing to the local storage path.</td>
 <td><img src="./media/image18.png"
 style="width:4.25393in;height:1.33068in" /></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><p>Now the Container Create Options to bind the module and host
 storage folders.</p>
 <p>In this case, the edgeHub contains some predefined configuration, be
@@ -1198,52 +1203,52 @@ careful to preserve the document correctness.</p></td>
 <td><img src="./media/image20.png"
 style="width:4.2057in;height:2.32234in" /></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Apply the changes.</td>
 <td><img src="./media/image21.png"
 style="width:1.9685in;height:0.44313in" /></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Now, we will configure the TemperatureSensor module.</td>
 <td><img src="./media/image22.png"
 style="width:3.0586in;height:1.60014in" /></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Define the environment variable.</td>
 <td><img src="./media/image23.png"
 style="width:4.3646in;height:1.33562in" /></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>And the Container Create Options.</td>
 <td><img src="./media/image24.png"
 style="width:3.95242in;height:2.50397in" /></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Apply the changes again.</td>
 <td><img src="./media/image21.png"
 style="width:1.9685in;height:0.44313in" /></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>We are not going to change any route, so you can go directly to
 “Review + create” step</td>
 <td><img src="./media/image25.png"
 style="width:3.27321in;height:1.88753in" /></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>We can review the deployment manifest. And then create the
 deployment.</td>
 <td><img src="./media/image26.png"
 style="width:3.85556in;height:3.80071in" /></td>
 </tr>
-<tr class="even">
-<td>After few moments, the configurations will be applied in the device.
-So we can execute again the ‘iotedge check’ command.</td>
+<tr class="odd">
+<td>After few moments, the configurations will be applied in the device,
+so we can execute again the ‘iotedge check’ command.</td>
 <td><p><strong>$ sudo iotedge check</strong></p>
 <p><img src="./media/image27.png"
 style="width:4.72441in;height:5.43812in"
 alt="Text Description automatically generated" /></p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td colspan="2">In the output of the command, we see the warnings
 removed. The only warning left is related to verification of the MQTT
 protocol connectivity which is not currently in use.</td>
