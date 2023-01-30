@@ -145,7 +145,7 @@ authentication.
   and 1.2. TLS 1.0 and 1.1 are considered legacy and are planned for
   [deprecation](https://learn.microsoft.com/azure/iot-hub/iot-hub-tls-deprecating-1-0-and-1-1).
 
-      Typically, IoT devices send telemetry from the sensors to back-end
+  Typically, IoT devices send telemetry from the sensors to back-end
 services in the cloud. However, other types of communication are
 possible, such as a back-end service sending commands to your devices.
 
