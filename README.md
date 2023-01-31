@@ -4,55 +4,7 @@ The IoT Production Training Kit contains a collection of examples and best pract
 
 The IoT Production Training Kit can help you to implement best practices, use the Azure IoT service which fits best to your scenario and to avoid common pitfalls when implementing IoT projects using Microsoft Azure IoT.
 
-The IoT Production Training Kit is modular so you can jump to any section of interest or start at the beginning. The slides, demos and source code for each module are shared with a creative commons (with attribution) license to help your organization build effective IoT solutions With Azure IoT.
-
-## Overview
-
-A typical IoT scenario consists of: 
-
-* IoT devices
-* Field gateways
-* A cloud gateway (edge based processing and storing capabilities)
-* Cloud based processing and storage capabilities
-
-![Overview](media/ScenarioOverview.png)
-
-## Modules
-
-The training kit focuses on the following independent modules:
-![KitContent](media/KitContent.png)
-* [Certificates](README.md): Will be provided soon.
-
-* [IoT Edge](IoT-Edge-101/iot-edge-101.md): This module covers the capabilites Azure IoT Edge can bring into your IoT solutions including edge computing, offline support, cost optimization, etc.
-
-* [Data Egress](DataEgress-101-Routing/README.md): This module covers multiple ways to egress data from IoT Hub
-  * [IoT Hub Routes](DataEgress-101-Routing/README.md) provides and overview and gives best practices how IoT Hub's data routing functionality can be used to ***push*** data to other Azure PaaS services like Service Bus, Event Hubs or Azure Storage. It highlights how messages ingested to IoT Hub can be enriched and how messages can be filtered.
-  * [Event Grid integration](README.md): Will be provided soon.
-  * [Service Endpoints](README.md): Will be provided soon.
-  
-* [DevOps](README.md): Will be provided soon.
-  * [DevOps for IoT Hub](README.md): Will be provided soon.
-  * [DevOps for IoT Central](README.md): Will be provided soon.
-
-## Summary & Highlights
-
-* Certificates:
-  * Highlight 1...
-  * Highlight 2 ...
-
-* IoT Edge:
-  * [IoT Concepts](IoT-Edge-101/iot-edge-101.md/#iot-concepts): covers common concepts and definitions to get up to speed with IoT solutions language.
-  * [What is Azure IoT Edge](IoT-Edge-101/iot-edge-101.md/#what-is-azure-iot-edge): get a closer look to the capabilities and scenarios where you can use Azure IoT Edge.
-  * [Create and manage IoT Edge devices](IoT-Edge-101/iot-edge-101.md/#create-and-manage-iot-edge-devices): covers considerations and provides pointers to further documentation to allow you to ask important questions so you can make correct choices for production scenarios.
-
-* Data Egress:
-  * Highlight 1...
-  * Highlight 2 ...
-
-* DevOps
-  * Highlight 1...
-  * Highlight 2 ...
-
+Please see the latest docs at our GitHub Pages site: [IoT Training Pack](https://azure.github.io/IoTTrainingPack/).
 
 ## Contributing
 
