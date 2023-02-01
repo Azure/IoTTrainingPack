@@ -2,7 +2,6 @@
 title: IoT Edge 101
 description: End-to-end review of IoT Edge concepts and considerations.
 author: Raul Alarcon
-
 ms.author: ralarcon
 ms.date: 01/09/2023
 ms.topic: conceptual
@@ -11,6 +10,7 @@ services: iot-edge
 nav_order: 2
 parent: IoT Production Training Pack
 has_children: true
+permalink: modules/IoTEdge
 ---
 
 # IoT Edge 101
@@ -28,3 +28,4 @@ If you already have experience with IoT Edge concepts and architecture,
 and you are looking for more production grade guidance, you can jump
 directly to the “[Create and manage IoT Edge
 devices](#_Create_and_manage)” section.
+{: .fs-6 .fw-300 }
