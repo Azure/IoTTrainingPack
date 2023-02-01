@@ -27,37 +27,23 @@ A typical IoT scenario consists of:
 
 The training kit focuses on the following independent modules:
 ![KitContent](assets/images/KitContent.png)
-* [Certificates](README.md): Will be provided soon.
-
 * [IoT Edge](modules/IoTEdge/index.md): This module covers the capabilites Azure IoT Edge can bring into your IoT solutions including edge computing, offline support, cost optimization, etc.
 
 * [Data Egress](modules/DataEgress/index.md): This module covers multiple ways to egress data from IoT Hub
   * [IoT Hub Routes](modules/DataEgress/index.md) provides and overview and gives best practices how IoT Hub's data routing functionality can be used to ***push*** data to other Azure PaaS services like Service Bus, Event Hubs or Azure Storage. It highlights how messages ingested to IoT Hub can be enriched and how messages can be filtered.
   * Event Grid integration: Will be provided soon.
   * Service Endpoints: Will be provided soon.
-  
-* DevOps: Will be provided soon.
-  * DevOps for IoT Hub: Will be provided soon.
+
+* Certificates: Will be provided soon.
+
+* DevOps for IoT Hub: Will be provided soon.
 
 ## Summary & Highlights
-
-* Certificates:
-  * Highlight 1...
-  * Highlight 2 ...
 
 * IoT Edge:
   * [IoT Concepts](modules/IoTEdge/index.md/#iot-concepts): covers common concepts and definitions to get up to speed with IoT solutions language.
   * [What is Azure IoT Edge](modules/IoTEdge/index.md/#what-is-azure-iot-edge): get a closer look to the capabilities and scenarios where you can use Azure IoT Edge.
   * [Create and manage IoT Edge devices](modules/IoTEdge/index.md/#create-and-manage-iot-edge-devices): covers considerations and provides pointers to further documentation to allow you to ask important questions so you can make correct choices for production scenarios.
-
-* Data Egress:
-  * Highlight 1...
-  * Highlight 2 ...
-
-* DevOps
-  * Highlight 1...
-  * Highlight 2 ...
-
 
 ## Contributing
 
