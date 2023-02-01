@@ -1,8 +1,8 @@
 ---
-layout: default
 title: Create and manage IoT Edge devices
 parent: IoT Edge 101
-nav_order: 6
+grand_parent: IoT Production Training Pack
+nav_order: 3
 ---
 
 # Create and manage IoT Edge devices

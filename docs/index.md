@@ -42,8 +42,8 @@ The training kit focuses on the following independent modules:
 
 * IoT Edge:
   * [IoT Concepts](modules/IoTEdge/iot-concepts.md): covers common concepts and definitions to get up to speed with IoT solutions language.
-  * [What is Azure IoT Edge](modules/IoTEdge/index.md/what-is-iot-edge.md): get a closer look to the capabilities and scenarios where you can use Azure IoT Edge.
-  * [Create and manage IoT Edge devices](modules/IoTEdge/create-and-manage.md/#create-and-manage-iot-edge-devices): covers considerations and provides pointers to further documentation to allow you to ask important questions so you can make correct choices for production scenarios.
+  * [What is Azure IoT Edge](modules/IoTEdge/what-is-iot-edge.md): get a closer look to the capabilities and scenarios where you can use Azure IoT Edge.
+  * [Create and manage IoT Edge devices](modules/IoTEdge/create-and-manage.md): covers considerations and provides pointers to further documentation to allow you to ask important questions so you can make correct choices for production scenarios.
 
 ## Contributing
 

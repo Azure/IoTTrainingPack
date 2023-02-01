@@ -1,8 +1,8 @@
 ---
-layout: default
 title: IoT Concepts
 parent: IoT Edge 101
-nav_order: 4
+grand_parent: IoT Production Training Pack
+nav_order: 1
 ---
 
 # IoT Concepts

@@ -24,4 +24,4 @@ developers, and operators.
 
 If you already have experience with IoT Edge concepts and architecture,
 and you are looking for more production grade guidance, you can jump
-directly to the “[Create and manage IoT Edge devices](#_Create_and_manage)” section.
+directly to the “[Create and manage IoT Edge devices](/modules/IoTEdge/create-and-manage.md)” section.

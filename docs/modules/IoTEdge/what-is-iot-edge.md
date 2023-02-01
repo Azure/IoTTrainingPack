@@ -1,8 +1,8 @@
 ---
-layout: default
 title: What is Azure IoT Edge
 parent: IoT Edge 101
-nav_order: 5
+grand_parent: IoT Production Training Pack
+nav_order: 2
 ---
 
 # What is Azure IoT Edge
