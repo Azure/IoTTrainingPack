@@ -2,10 +2,10 @@
 layout: default
 title: What is Azure IoT Edge
 parent: IoT Edge 101
+nav_order: 5
 ---
 
 # What is Azure IoT Edge
-{: .no_toc }
 
 <details open markdown="block">
   <summary>

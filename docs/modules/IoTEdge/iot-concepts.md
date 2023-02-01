@@ -2,10 +2,10 @@
 layout: default
 title: IoT Concepts
 parent: IoT Edge 101
+nav_order: 4
 ---
 
 # IoT Concepts
-{: .no_toc }
 
 Before going into details with Azure IoT Edge, Let’s do a quick review
 of some [IoT

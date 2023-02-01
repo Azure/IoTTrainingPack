@@ -2,10 +2,10 @@
 layout: default
 title: Create and manage IoT Edge devices
 parent: IoT Edge 101
+nav_order: 6
 ---
 
 # Create and manage IoT Edge devices
-{: .no_toc }
 
 <details open markdown="block">
   <summary>

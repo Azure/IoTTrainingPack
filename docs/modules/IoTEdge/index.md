@@ -13,7 +13,6 @@ has_children: true
 ---
 
 # IoT Edge 101
-{: .no_toc }
 
 Azure IoT Edge provides edge computing capabilities to provide edge
 intelligence to your IoT solutions. The following document is a
@@ -25,6 +24,4 @@ developers, and operators.
 
 If you already have experience with IoT Edge concepts and architecture,
 and you are looking for more production grade guidance, you can jump
-directly to the “[Create and manage IoT Edge
-devices](#_Create_and_manage)” section.
-{: .fs-6 .fw-300 }
+directly to the “[Create and manage IoT Edge devices](#_Create_and_manage)” section.
