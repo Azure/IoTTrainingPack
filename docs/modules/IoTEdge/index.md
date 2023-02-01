@@ -28,13 +28,3 @@ If you already have experience with IoT Edge concepts and architecture,
 and you are looking for more production grade guidance, you can jump
 directly to the “[Create and manage IoT Edge
 devices](#_Create_and_manage)” section.
-
-
-<details open markdown="block">
-  <summary>
-    Table of contents
-  </summary>
-  {: .text-delta }
-- TOC
-{:toc}
-</details>
