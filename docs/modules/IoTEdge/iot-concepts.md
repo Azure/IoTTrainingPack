@@ -1,8 +1,7 @@
 ---
 layout: default
 title: IoT Concepts
-parent: IoT Edge 101 
-nav_order: 1
+parent: IoT Edge 101
 ---
 
 # IoT Concepts
