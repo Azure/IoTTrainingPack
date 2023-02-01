@@ -1,8 +1,7 @@
 ---
 layout: default
 title: Create and manage IoT Edge devices
-parent: IoT Edge 101 
-nav_order: 3
+parent: IoT Edge 101
 ---
 
 # Create and manage IoT Edge devices
