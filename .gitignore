@@ -3,6 +3,13 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Jekyll Files
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
+
 # User-specific files
 *.rsuser
 *.suo
