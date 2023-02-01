@@ -10,7 +10,6 @@ services: iot-edge
 nav_order: 2
 parent: IoT Production Training Pack
 has_children: true
-permalink: modules/IoTEdge
 ---
 
 # IoT Edge 101
