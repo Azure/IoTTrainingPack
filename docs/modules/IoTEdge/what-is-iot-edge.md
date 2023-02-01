@@ -1,8 +1,7 @@
 ---
 layout: default
 title: What is Azure IoT Edge
-parent: IoT Edge 101 
-nav_order: 2
+parent: IoT Edge 101
 ---
 
 # What is Azure IoT Edge
