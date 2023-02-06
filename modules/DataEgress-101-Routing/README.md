@@ -1,4 +1,4 @@
-# IoT Production Training Kit - DataEgress Routing Code Samples
+# IoT Production Training Pack - DataEgress Routing Code Samples
 
 ## Example Code
 

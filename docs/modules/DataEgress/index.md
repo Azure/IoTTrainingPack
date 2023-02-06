@@ -5,7 +5,7 @@ nav_order: 1
 parent: IoT Production Training Pack
 ---
 
-# IoT Production Training Kit - DataEgress Routing
+# IoT Production Training Pack - DataEgress Routing
 
 ## Overview
 

@@ -1,8 +1,8 @@
-# IoT Production Training Kit
+# IoT Production Training Pack
 
-The IoT Production Training Kit contains a collection of examples and best practices to address common IoT use cases and challenges. The content is a combination of experiences from Microsoft teams and learnings from customer engagements.
+The IoT Production Training Pack contains a collection of examples and best practices to address common IoT use cases and challenges. The content is a combination of experiences from Microsoft teams and learnings from customer engagements.
 
-The IoT Production Training Kit can help you to implement best practices, use the Azure IoT service which fits best to your scenario and to avoid common pitfalls when implementing IoT projects using Microsoft Azure IoT.
+The IoT Production Training Pack can help you to implement best practices, use the Azure IoT service which fits best to your scenario and to avoid common pitfalls when implementing IoT projects using Microsoft Azure IoT.
 
 Please see the latest docs at our GitHub Pages site: [IoT Training Pack](https://azure.github.io/IoTTrainingPack/).
 

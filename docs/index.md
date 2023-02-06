@@ -4,13 +4,13 @@ has_children: true
 nav_order: 1
 ---
 
-# IoT Production Training Kit
+# IoT Production Training Pack
 
-The IoT Production Training Kit contains a collection of examples and best practices to address common IoT use cases and challenges. The content is a combination of experiences from Microsoft teams and learnings from customer engagements.
+The IoT Production Training Pack contains a collection of examples and best practices to address common IoT use cases and challenges. The content is a combination of experiences from Microsoft teams and learnings from customer engagements.
 
-The IoT Production Training Kit can help you to implement best practices, use the Azure IoT service which fits best to your scenario and to avoid common pitfalls when implementing IoT projects using Microsoft Azure IoT.
+The IoT Production Training Pack can help you to implement best practices, use the Azure IoT service which fits best to your scenario and to avoid common pitfalls when implementing IoT projects using Microsoft Azure IoT.
 
-The IoT Production Training Kit is modular so you can jump to any section of interest or start at the beginning. The slides, demos and source code for each module are shared with a creative commons (with attribution) license to help your organization build effective IoT solutions With Azure IoT.
+The IoT Production Training Pack is modular so you can jump to any section of interest or start at the beginning. The slides, demos and source code for each module are shared with a creative commons (with attribution) license to help your organization build effective IoT solutions With Azure IoT.
 
 ## Overview
 
@@ -25,7 +25,7 @@ A typical IoT scenario consists of:
 
 ## Modules
 
-The training kit focuses on the following independent modules:
+The Training Pack focuses on the following independent modules:
 ![KitContent](assets/images/KitContent.png)
 * [IoT Edge](modules/IoTEdge/index.md): This module covers the capabilites Azure IoT Edge can bring into your IoT solutions including edge computing, offline support, cost optimization, etc.
 
