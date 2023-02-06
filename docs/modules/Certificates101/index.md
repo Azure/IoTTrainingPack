@@ -9,7 +9,7 @@ ms.service: iot
 services: iot
 nav_order: 3
 parent: IoT Production Training Pack
-has_children: false
+has_children: true
 ---
 
 # IoT Production Training Kit - Certificates 101

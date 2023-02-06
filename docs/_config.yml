@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: "Production IoT Training Pack"
+title: "IoT Production Training Pack"
 #email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   This documentation will guide you through the concepts building production IoT Solutions on Azure.
@@ -101,3 +101,6 @@ aux_links:
 
 # Makes Aux links open in a new tab. Default is false
 aux_links_new_tab: true
+
+mermaid:
+  version: "9.3.0"
