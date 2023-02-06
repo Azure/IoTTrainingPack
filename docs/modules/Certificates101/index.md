@@ -172,7 +172,7 @@ public key via a digital signature made by an entity which is the
 
 !["A sample certificate layout"](media/Certificates_6.png)
 
-[image source](https://comp38411.jtang.dev/docs/public-key-infrastructure/x509-certificates/)
+[(image source)](https://comp38411.jtang.dev/docs/public-key-infrastructure/x509-certificates/)
 
 The full list of fields is documented at [Tutorial - Understand X.509
 public key certificates for Azure IoT Hub \| Microsoft
