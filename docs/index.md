@@ -14,7 +14,7 @@ The IoT Production Training Pack is modular so you can jump to any section of in
 
 ## Overview
 
-A typical IoT scenario consists of: 
+A typical IoT scenario consists of:
 
 * IoT devices
 * Field gateways
@@ -26,8 +26,10 @@ A typical IoT scenario consists of:
 ## Modules
 
 The Training Pack focuses on the following independent modules:
+
 ![KitContent](assets/images/KitContent.png)
-* [IoT Edge](modules/IoTEdge/index.md): This module covers the capabilites Azure IoT Edge can bring into your IoT solutions including edge computing, offline support, cost optimization, etc.
+
+* [IoT Edge](modules/IoTEdge/index.md): This module covers the capabilities Azure IoT Edge can bring into your IoT solutions including edge computing, offline support, cost optimization, etc.
 
 * [Data Egress](modules/DataEgress/index.md): This module covers multiple ways to egress data from IoT Hub
   * [IoT Hub Routes](modules/DataEgress/index.md) provides and overview and gives best practices how IoT Hub's data routing functionality can be used to ***push*** data to other Azure PaaS services like Service Bus, Event Hubs or Azure Storage. It highlights how messages ingested to IoT Hub can be enriched and how messages can be filtered.
@@ -49,7 +51,7 @@ The Training Pack focuses on the following independent modules:
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+the rights to use your contribution. For details, visit [the CLA site](https://cla.opensource.microsoft.com).
 
 When you submit a pull request, a CLA bot will automatically determine whether you need to provide
 a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
@@ -61,8 +63,8 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 
 ## Trademarks
 
-This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft 
-trademarks or logos is subject to and must follow 
-[Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
+This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft
+trademarks or logos is subject to and must follow
+[Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
 Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
 Any use of third-party trademarks or logos are subject to those third-party's policies.

@@ -2,7 +2,7 @@
 
 ## Example Code
 
-### Tools:
+### Tools
 
 * [Azure Visual Studio Code](https://azure.microsoft.com/en-us/products/visual-studio-code/)
 * [Microsoft dotnet 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)

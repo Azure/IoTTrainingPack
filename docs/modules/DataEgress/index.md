@@ -1,11 +1,11 @@
 ---
-title: Data Egress
+title: Data Egress Routing
 has_children: false
 nav_order: 1
 parent: IoT Production Training Pack
 ---
 
-# IoT Production Training Pack - DataEgress Routing
+# Data Egress Routing
 
 ## Overview
 
@@ -66,4 +66,3 @@ Message enrichments is the ability of an IoT hub to stamp messages with addition
 ## Example Code
 
 Please see the [DataEgress-101-Routing](https://github.com/Azure/IoTTrainingPack/tree/main/modules/DataEgress-101-Routing) folder for code samples.
-
