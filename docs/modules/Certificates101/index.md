@@ -170,10 +170,9 @@ public key via a digital signature made by an entity which is the
 - A **digital signature**, made by the issuer, to seal the entire data
     object
 
-<figure>
-    <img src="./media/Certificates_6.png">
-    <figcaption>A sample certificate layout <a href="https://comp38411.jtang.dev/docs/public-key-infrastructure/x509-certificates/">(Source)</a>
-</figure>
+!["A sample certificate layout"](media/Certificates_6.png)
+
+[image source](https://comp38411.jtang.dev/docs/public-key-infrastructure/x509-certificates/)
 
 The full list of fields is documented at [Tutorial - Understand X.509
 public key certificates for Azure IoT Hub \| Microsoft
@@ -211,10 +210,9 @@ of course! That certificate in turn may be issued by a Certification
 Authority "D" and recursively by other CA entities all chained together.
 That's the concept of "chain of trust".
 
-<figure>
-    <img src="media/Certificates_7.jpeg">
-    <figcaption>The certificate chain of trust <a href="https://knowledge.digicert.com/solution/SO16297.html">(Source)</a>
-</figure>
+![A sample certificate chain of trust](media/Certificates_7.jpeg)
+
+[(image source)](https://knowledge.digicert.com/solution/SO16297.html)
 
 Is the "chain of trust" endless? No - the so-called "intermediate" CAs
 chain up to a "root" CA certificate, which is a special one: it's a
