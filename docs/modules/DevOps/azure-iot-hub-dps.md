@@ -97,4 +97,4 @@ az iot dps enrollment-group create -g {resource_group_name} --dps-name {dps_name
 
 
 ### Demo
-Please see the [/modules/DevOps/IotHub](https://github.com/Azure/IoTTrainingPack/tree/main/modules/DevOps/IotHub) folder for code samples.
+Please see the [/modules/DevOps/IotHub](https://github.com/Azure/IoTTrainingPack/tree/devops/modules/DevOps/IoTHub-DPS) folder for code samples.

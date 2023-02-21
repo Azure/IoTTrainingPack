@@ -72,4 +72,4 @@ resource iotHub 'Microsoft.Devices/IotHubs@2021-07-02' = {
 
 ### Demo
  
-Please see the [/modules/DevOps/IotHub](https://github.com/Azure/IoTTrainingPack/tree/main/modules/DevOps/IotHub) folder for code samples.
+Please see the [/modules/DevOps/IotHub](https://github.com/Azure/IoTTrainingPack/tree/devops/modules/DevOps/IoTHub) folder for code samples.
