@@ -29,23 +29,17 @@ The Training Pack focuses on the following independent modules:
 
 ![KitContent](assets/images/KitContent.png)
 
-* [IoT Edge](modules/IoTEdge/index.md): This module covers the capabilities Azure IoT Edge can bring into your IoT solutions including edge computing, offline support, cost optimization, etc.
+* [Certificates](modules/Certificates101/index.md): A proper understanding of certificates and their use is critical for
+a production IoT deployment.
 
 * [Data Egress](modules/DataEgress/index.md): This module covers multiple ways to egress data from IoT Hub
   * [IoT Hub Routes](modules/DataEgress/index.md) provides and overview and gives best practices how IoT Hub's data routing functionality can be used to ***push*** data to other Azure PaaS services like Service Bus, Event Hubs or Azure Storage. It highlights how messages ingested to IoT Hub can be enriched and how messages can be filtered.
   * Event Grid integration: Will be provided soon.
   * Service Endpoints: Will be provided soon.
 
-* Certificates: Will be provided soon.
+* [DevOps for Azure IoT](modules/DevOps/index.md): Azure IoT and DevOps can work together to build scalable, reliable, and secure IoT solutions using CI/CD (Continuous Integration and Continuous Delivery) and IaC (Infrastructure as Code).
 
-* DevOps for IoT Hub: Will be provided soon.
-
-## Summary & Highlights
-
-* IoT Edge:
-  * [IoT Concepts](modules/IoTEdge/iot-concepts.md): covers common concepts and definitions to get up to speed with IoT solutions language.
-  * [What is Azure IoT Edge](modules/IoTEdge/what-is-iot-edge.md): get a closer look to the capabilities and scenarios where you can use Azure IoT Edge.
-  * [Create and manage IoT Edge devices](modules/IoTEdge/create-and-manage.md): covers considerations and provides pointers to further documentation to allow you to ask important questions so you can make correct choices for production scenarios.
+* [IoT Edge](modules/IoTEdge/index.md): This module covers the capabilities Azure IoT Edge can bring into your IoT solutions including edge computing, offline support, cost optimization, etc.
 
 ## Contributing
 

@@ -7,7 +7,7 @@ ms.date: 01/09/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-nav_order: 2
+nav_order: 4
 parent: IoT Production Training Pack
 has_children: true
 ---
@@ -22,6 +22,8 @@ previous experience and focuses to ease the understanding around Azure
 IoT Edge and facilitate the journey to production for IoT architects,
 developers, and operators.
 
-If you already have experience with IoT Edge concepts and architecture,
-and you are looking for more production grade guidance, you can jump
-directly to the “[Create and manage IoT Edge devices](/modules/IoTEdge/create-and-manage.md)” section.
+## IoT Edge:
+
+  * [IoT Concepts](iot-concepts.md): covers common concepts and definitions to get up to speed with IoT solutions language.
+  * [What is Azure IoT Edge](what-is-iot-edge.md): get a closer look to the capabilities and scenarios where you can use Azure IoT Edge.
+  * [Create and manage IoT Edge devices](create-and-manage.md): covers considerations and provides pointers to further documentation to allow you to ask important questions so you can make correct choices for production scenarios.
