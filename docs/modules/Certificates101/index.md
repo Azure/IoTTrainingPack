@@ -7,7 +7,7 @@ ms.date: 02/06/2023
 ms.topic: conceptual
 ms.service: iot
 services: iot
-nav_order: 3
+nav_order: 1
 parent: IoT Production Training Pack
 has_children: true
 ---
