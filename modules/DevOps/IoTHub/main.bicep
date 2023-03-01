@@ -69,3 +69,5 @@ resource consumerGroup 'Microsoft.Devices/IotHubs/eventHubEndpoints/ConsumerGrou
     iotHub
   ]
 }
+
+output iotHubName string = iotHub.name

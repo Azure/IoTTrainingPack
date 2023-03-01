@@ -66,10 +66,9 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    environment: Website
     needs: preview
     outputs:
-      appServiceAppHostName: ${{ steps.deploy.outputs.appServiceAppHostName }}
+      appServiceAppHostName: ${{ steps.deploy.outputs.iotHubName }}
     steps:
     - uses: actions/checkout@v2
       # Log into Azure
