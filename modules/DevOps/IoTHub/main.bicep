@@ -46,7 +46,6 @@ resource iotHub 'Microsoft.Devices/IotHubs@2022-04-30-preview' = {
       }
     }
     // For using the New DigiCert Global G2 Root Certificate instead of the Baltimore CyberTrust Root
-    features: 'RootCertificateV2'
     rootCertificate: {
         enableRootCertificateV2: true
     }
