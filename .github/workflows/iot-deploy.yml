@@ -1,0 +1,89 @@
+name: iot-deploy
+concurrency: iot
+
+on: 
+  push:
+    branches: 
+      - main
+    paths: 
+      - 'modules/DevOps/IoTHub/**'
+  workflow_dispatch:
+
+permissions:
+      id-token: write
+      contents: read
+
+env:
+  AZURE_RESOURCEGROUP_NAME: rg-iothub
+  ENVIRONMENT_TAG: Dev
+
+jobs:
+  lint: 
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run Bicep linter
+      run: az bicep build --file modules/DevOps/IoTHub/main.bicep
+
+  validate: 
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      # Log into Azure
+    - uses: azure/login@v1
+      with:
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+    - uses: azure/arm-deploy@v1
+      name: Run preflight validation
+      with:
+        deploymentName: ${{ github.run_number }}
+        resourceGroupName: ${{ env.AZURE_RESOURCEGROUP_NAME }}
+        template: ./modules/DevOps/IoTHub/main.bicep
+        parameters: modules/DevOps/IoTHub/main.parameters.json environmentTag=${{ env.ENVIRONMENT_TAG }}
+        deploymentMode: Validate
+
+  preview:
+    runs-on: ubuntu-latest
+    needs: [lint, validate]
+    steps:
+    - uses: actions/checkout@v2
+      # Log into Azure
+    - uses: azure/login@v1
+      with:
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+    - uses: azure/arm-deploy@v1
+      name: Run what-if
+      with:
+        failOnStdErr: false
+        resourceGroupName: ${{ env.AZURE_RESOURCEGROUP_NAME }}
+        template: modules/DevOps/IoTHub/main.bicep
+        parameters: modules/DevOps/IoTHub/main.parameters.json environmentTag=${{ env.ENVIRONMENT_TAG }}
+        additionalArguments: --what-if
+
+  deploy:
+    runs-on: ubuntu-latest
+    environment: Website
+    needs: preview
+    outputs:
+      appServiceAppHostName: ${{ steps.deploy.outputs.appServiceAppHostName }}
+    steps:
+    - uses: actions/checkout@v2
+      # Log into Azure
+    - uses: azure/login@v1
+      with:
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+    - uses: azure/arm-deploy@v1
+      id: deploy
+      name: Deploy website
+      with:
+        failOnStdErr: false
+        deploymentName: ${{ github.run_number }}
+        resourceGroupName: ${{ env.AZURE_RESOURCEGROUP_NAME }}
+        template: ./modules/DevOps/IoTHub/main.bicep
+        parameters: modules/DevOps/IoTHub/main.parameters.json environmentTag=${{ env.ENVIRONMENT_TAG }}

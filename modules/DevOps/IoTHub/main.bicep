@@ -8,6 +8,9 @@ param location string = resourceGroup().location
 @description('Specifies the IotHub SKU.')
 param skuName string = 'F1'
 
+@description('Environment Tag')
+param environmentTag string = 'dev'
+
 @description('Specifies the number of provisioned IoT Hub units. Restricted to 1 unit for the F1 SKU. Can be set up to maximum number allowed for subscription.')
 @minValue(1)
 @maxValue(1)
@@ -51,6 +54,9 @@ resource iotHub 'Microsoft.Devices/IotHubs@2022-04-30-preview' = {
   sku: {
     name: skuName
     capacity: capacityUnits
+  }
+  tags: {
+    environment: environmentTag
   }
 }
 

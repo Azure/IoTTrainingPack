@@ -3,13 +3,16 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "iotHubName": {
-      "value": "cayers-demo-iothub"
+      "value": "iot-training-pack-demo"
     },
     "skuName": {
       "value": "S1"
     },
     "capacityUnits": {
       "value": 1
+    },
+    "environmentTag": {
+      "value": "dev"
     }
   }
 }

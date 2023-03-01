@@ -25,7 +25,6 @@ resource iotHub 'Microsoft.Devices/IotHubs@2020-03-01' = {
       events: {
         retentionTimeInDays: 1
         partitionCount: 4
-        path: 'events'
       }
     }
     ipFilterRules: []
