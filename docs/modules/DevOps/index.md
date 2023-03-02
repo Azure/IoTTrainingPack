@@ -22,6 +22,8 @@ Azure IoT is Microsoft's cloud platform for IoT solutions. It provides a suite o
 
 Azure IoT and DevOps can work together to build scalable, reliable, and secure IoT solutions using IaC. By using IaC, you can define the infrastructure that needs to be deployed in code, store it in a source code repository, and version it like any other code. You can then use DevOps practices to automate the deployment and management of your IoT infrastructure and applications, from development to production.
 
+[DevOps with IoT Apps Presentation ![DevOps Presentation](./media/DevOpsIoTHub.png)](./media/DevOpsWithIoTApps.pdf)
+
 Some of the benefits of using IaC with Azure IoT and DevOps include:
 
 Speed and Agility: You can quickly provision and scale your IoT infrastructure and applications using code, reducing the manual effort and error-prone tasks involved in managing infrastructure manually.

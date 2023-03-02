@@ -2,11 +2,11 @@ name: iot-deploy
 concurrency: iot
 
 on: 
-  push:
-    branches: 
-      - main
-    paths: 
-      - 'modules/DevOps/IoTHub/**'
+  # push:
+  #   branches: 
+  #     - main
+  #   paths: 
+  #     - 'modules/DevOps/IoTHub/**'
   workflow_dispatch:
 
 permissions:
