@@ -14,13 +14,14 @@ Azure IoT Hub is a fully managed service that helps enable reliable and secure b
 Custom functionality which processes data or messages sent from devices to IoT Hub can retrieve information using two different patterns:
 
 * Message Routing: IoT Hub actively ***pushes*** messages
+* Integration with Event Grid: IoT Hub actively ***pushes*** messages
 * Service Endpoint: IoT Hub provides messages to be ***pulled***
 
-![DataEgressOverview](./img/DateEgressOverview.png)  
+![DataEgressOverview](img/DataEgressOverview.png)  
 
 ### TL;DR
 
-This repository showcases:
+This example highlights:
 
 * sending data to IoT Hub
 * enriching the data with information from the device's Azure IoT Hub Device Twin
@@ -65,4 +66,4 @@ Message enrichments is the ability of an IoT hub to stamp messages with addition
 
 ## Example Code
 
-Please see the [DataEgress-101-Routing](https://github.com/Azure/IoTTrainingPack/tree/main/modules/DataEgress-101-Routing) folder for code samples.
+Please see the [DataEgress-Routing](https://github.com/Azure/IoTTrainingPack/tree/main/modules/DataEgress.Routing) folder for code samples.

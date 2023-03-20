@@ -1,0 +1,332 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "connections_outlooktasks_name": {
+            "defaultValue": "outlooktasks",
+            "type": "String"
+        },
+        "IoTHubName": {
+            "defaultValue": "IoTHubDataEgress",
+            "type": "String"
+        },
+        "EventGridTopicName": {
+            "defaultValue": "IoTHubEvents",
+            "type": "String"
+        },
+        "LogicAppTaskCreatorName": {
+            "defaultValue": "LogicAppDeviceTelemetry",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Devices/IotHubs",
+            "apiVersion": "2022-04-30-preview",
+            "name": "[parameters('IoTHubName')]",
+            "location": "WestEurope",
+            "sku": {
+                "name": "S1",
+                "tier": "Standard",
+                "capacity": 1
+            },
+            "identity": {
+                "type": "None"
+            },
+            "properties": {
+                "ipFilterRules": [],
+                "eventHubEndpoints": {
+                    "events": {
+                        "retentionTimeInDays": 1,
+                        "partitionCount": 2
+                    }
+                },
+                "routing": {
+                    "endpoints": {
+                        "serviceBusQueues": [],
+                        "serviceBusTopics": [],
+                        "eventHubs": [],
+                        "storageContainers": [],
+                        "cosmosDBSqlCollections": []
+                    },
+                    "fallbackRoute": {
+                        "name": "$fallback",
+                        "source": "DeviceMessages",
+                        "condition": "true",
+                        "endpointNames": [
+                            "events"
+                        ],
+                        "isEnabled": true
+                    }
+                },
+                "messagingEndpoints": {
+                    "fileNotifications": {
+                        "lockDurationAsIso8601": "PT5S",
+                        "ttlAsIso8601": "PT1H",
+                        "maxDeliveryCount": 10
+                    }
+                },
+                "enableFileUploadNotifications": false,
+                "cloudToDevice": {
+                    "maxDeliveryCount": 10,
+                    "defaultTtlAsIso8601": "PT1H",
+                    "feedback": {
+                        "lockDurationAsIso8601": "PT5S",
+                        "ttlAsIso8601": "PT1H",
+                        "maxDeliveryCount": 10
+                    }
+                },
+                "features": "None",
+                "allowedFqdnList": []
+            }
+        },
+        {
+            "type": "Microsoft.Web/connections",
+            "apiVersion": "2016-06-01",
+            "name": "[parameters('connections_outlooktasks_name')]",
+            "location": "westeurope",
+            "kind": "V1",
+            "properties": {
+                "displayName": "Outlook Tasks",
+                "statuses": [
+                    {
+                        "status": "Connected"
+                    }
+                ],
+                "customParameterValues": {},
+                "nonSecretParameterValues": {},
+                "createdTime": "2023-01-22T18:07:26.3908407Z",
+                "changedTime": "2023-01-27T14:10:43.1355025Z",
+                "api": {
+                    "name": "[parameters('connections_outlooktasks_name')]",
+                    "displayName": "Outlook Tasks",
+                    "description": "Outlook Tasks service lets you create, read, synchronize, update and delete your tasks that are secured by Azure Active Directory in Office 365 or a Microsoft account.",
+                    "iconUri": "[concat('https://connectoricons-prod.azureedge.net/releases/v1.0.1586/1.0.1586.2912/', parameters('connections_outlooktasks_name'), '/icon.png')]",
+                    "brandColor": "#0072c6",
+                    "id": "[concat('/subscriptions/25838890-c3d7-41ff-ad7f-829a1694cf90/providers/Microsoft.Web/locations/westeurope/managedApis/', parameters('connections_outlooktasks_name'))]",
+                    "type": "Microsoft.Web/locations/managedApis"
+                },
+                "testLinks": [
+                    {
+                        "requestUri": "[concat('https://edge.management.azure.com:443/subscriptions/25838890-c3d7-41ff-ad7f-829a1694cf90/resourceGroups/FTA.IoTHubDataEgress.EventGrid/providers/Microsoft.Web/connections/', parameters('connections_outlooktasks_name'), '/extensions/proxy/v2/me/taskfolders?api-version=2016-06-01')]",
+                        "method": "get"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Microsoft.EventGrid/systemTopics",
+            "apiVersion": "2022-06-15",
+            "name": "[parameters('EventGridTopicName')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Devices/IotHubs', parameters('IoTHubName'))]"
+            ],
+            "properties": {
+                "source": "[resourceId('Microsoft.Devices/IotHubs', parameters('IoTHubName'))]",
+                "topicType": "Microsoft.Devices.IoTHubs"
+            }
+        },
+        {
+            "type": "Microsoft.Logic/workflows",
+            "apiVersion": "2017-07-01",
+            "name": "[parameters('LogicAppTaskCreatorName')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/connections', parameters('connections_outlooktasks_name'))]"
+            ],
+            "properties": {
+                "state": "Enabled",
+                "definition": {
+                    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {
+                        "$connections": {
+                            "defaultValue": {},
+                            "type": "Object"
+                        }
+                    },
+                    "triggers": {
+                        "manual": {
+                            "type": "Request",
+                            "kind": "Http",
+                            "inputs": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "data": {
+                                                "properties": {
+                                                    "body": {
+                                                        "properties": {
+                                                            "DeviceCategory": {
+                                                                "type": "string"
+                                                            },
+                                                            "DeviceId": {
+                                                                "type": "string"
+                                                            },
+                                                            "EnergyConsumption": {
+                                                                "type": "number"
+                                                            },
+                                                            "Pressure": {
+                                                                "type": "number"
+                                                            },
+                                                            "TelemetryId": {
+                                                                "type": "string"
+                                                            },
+                                                            "TelemetryTimeStamp": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "properties": {
+                                                        "properties": {
+                                                            "Error": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "systemProperties": {
+                                                        "properties": {
+                                                            "iothub-connection-auth-generation-id": {
+                                                                "type": "string"
+                                                            },
+                                                            "iothub-connection-auth-method": {
+                                                                "type": "string"
+                                                            },
+                                                            "iothub-connection-device-id": {
+                                                                "type": "string"
+                                                            },
+                                                            "iothub-content-encoding": {
+                                                                "type": "string"
+                                                            },
+                                                            "iothub-content-type": {
+                                                                "type": "string"
+                                                            },
+                                                            "iothub-enqueuedtime": {
+                                                                "type": "string"
+                                                            },
+                                                            "iothub-message-source": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "dataVersion": {
+                                                "type": "string"
+                                            },
+                                            "eventTime": {
+                                                "type": "string"
+                                            },
+                                            "eventType": {
+                                                "type": "string"
+                                            },
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "metadataVersion": {
+                                                "type": "string"
+                                            },
+                                            "subject": {
+                                                "type": "string"
+                                            },
+                                            "topic": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "id",
+                                            "topic",
+                                            "subject",
+                                            "eventType",
+                                            "data",
+                                            "dataVersion",
+                                            "metadataVersion",
+                                            "eventTime"
+                                        ],
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                }
+                            }
+                        }
+                    },
+                    "actions": {
+                        "For_each": {
+                            "foreach": "@triggerBody()",
+                            "actions": {
+                                "Condition": {
+                                    "actions": {
+                                        "Create_a_task_(V2)": {
+                                            "runAfter": {},
+                                            "type": "ApiConnection",
+                                            "inputs": {
+                                                "body": {
+                                                    "Body": {
+                                                        "Content": "<p>Energy Consumption: @{items('For_each')?['data']?['body']?['EnergyConsumption']} <br>\nSequence: @{items('For_each')?['data']?['body']?['Sequence']} <br>\nEnqueued Time: @{items('For_each')?['data']?['systemProperties']?['iothub-enqueuedtime']}<br>\nLogic App Time: @{utcNow()}</p>",
+                                                        "ContentType": "HTML"
+                                                    },
+                                                    "DueDateTime": {
+                                                        "TimeZone": "UTC"
+                                                    },
+                                                    "ReminderDateTime": {
+                                                        "TimeZone": "UTC"
+                                                    },
+                                                    "StartDateTime": {
+                                                        "TimeZone": "UTC"
+                                                    },
+                                                    "Subject": "Device EnergyConsumption Warning | Device: @{items('For_each')?['data']?['body']?['DeviceId']}"
+                                                },
+                                                "host": {
+                                                    "connection": {
+                                                        "name": "@parameters('$connections')['outlooktasks']['connectionId']"
+                                                    }
+                                                },
+                                                "method": "post",
+                                                "path": "/v2/tasks",
+                                                "queries": {
+                                                    "folderId": "AQMkADAwATMwMAItOTIwMS0xYjE1LTAwAi0wMAoALgAAA8xVxToA56NJnc6INwG1XQcBAJXmckviyqpJrQGKndsDtTEAAAIBEgAAAA=="
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "runAfter": {},
+                                    "expression": {
+                                        "and": [
+                                            {
+                                                "greater": [
+                                                    "@items('For_each')?['data']?['body']?['EnergyConsumption']",
+                                                    20
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    "type": "If"
+                                }
+                            },
+                            "runAfter": {},
+                            "type": "Foreach"
+                        }
+                    },
+                    "outputs": {}
+                },
+                "parameters": {
+                    "$connections": {
+                        "value": {
+                            "outlooktasks": {
+                                "connectionId": "[resourceId('Microsoft.Web/connections', parameters('connections_outlooktasks_name'))]",
+                                "connectionName": "outlooktasks",
+                                "id": "/subscriptions/25838890-c3d7-41ff-ad7f-829a1694cf90/providers/Microsoft.Web/locations/westeurope/managedApis/outlooktasks"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

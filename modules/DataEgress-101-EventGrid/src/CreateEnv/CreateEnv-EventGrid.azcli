@@ -1,0 +1,78 @@
+################################################
+# Step 1:   Logon to Azure 
+#           Get and set Azure subscription 
+################################################
+# Login to subscription
+az login
+
+# Retrieve default subscription id
+$subscriptionId = (
+    (
+        az account list `
+            --query "[?isDefault]" 
+    ) | ConvertFrom-Json
+).id
+
+# Set Subscription
+az account set --subscription $subscriptionId
+
+################################################
+# Step 2:   Create Environment (ARM template)
+#           Resource Group, IoT Hub, Logic App
+#           Logic App Connector
+################################################
+$random = Get-Random -Minimum 1 -Maximum 999
+$resourceGroup = "TrainingKit.IoTHubDataEgress.EventGrid"
+$location = "WestEurope"
+$templateFile = "modules/DataEgress-101-EventGrid/src/CreateEnv/CreateEnv-EventGrid.json"
+
+$eventGridTopicName = "IoTHubEvents"
+$hubName = "IoTHubDataEgress$random"
+$logicAppName = "LogicAppTaskCreator$random"
+$eventGridTopicName = "IoTHubEvents"
+
+az group create `
+    --location $location `
+    --resource-group $resourceGroup
+
+az deployment group create `
+    --resource-group $resourceGroup `
+    --template-file $templateFile `
+    --parameters "IoTHubName=$hubName" `
+                 "LogicAppTaskCreatorName=$logicAppName" `
+                 "EventGridTopicName=$eventGridTopicName"
+
+
+################################################
+# Step 3:   Authenticate Outlook Connector
+################################################
+# Please follow for demonstration purpose the step-by-step guidance in 
+# modules/DataEgress-101-EventGrid/src/CreateEnv/ManualSteps/AuthenticateOutlookConnector.md
+
+################################################
+# Step 4:   Create IoT Hub Events Config
+################################################
+# Please follow for demonstration purpose the step-by-step guidance in 
+# modules/DataEgress-101-EventGrid/src/CreateEnv/ManualSteps/CreateIoTHubEvent.md
+
+
+################################################
+# Step 5:   Create IoT Hub device
+################################################
+# Create device01
+$hubDeviceId = "device01"
+
+az iot hub device-identity create `
+    --device-id $hubDeviceId `
+    --hub-name $hubName
+
+$hubDeviceConnectionString01 = (az iot hub device-identity connection-string show `
+    --device-id $hubDeviceId `
+    --hub-name $hubName `
+    --query connectionString `
+    --output tsv)
+
+################################################
+# Step 6:   Send device data
+################################################
+dotnet run --project ./modules/DataEgress-101-EventGrid//src/DataIngest-DeviceSimulator/DataIngest-DeviceSimulator.csproj $hubDeviceConnectionString01 device01

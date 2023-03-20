@@ -1,0 +1,218 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workflows_LogicAppTaskCreatorSequence_name": {
+            "defaultValue": "LogicAppTaskCreatorSequence",
+            "type": "String"
+        },
+        "connections_outlooktasks_externalid": {
+            "defaultValue": "/subscriptions/25838890-c3d7-41ff-ad7f-829a1694cf90/resourceGroups/FTA.IoTHubDataEgress.EventGrid/providers/Microsoft.Web/connections/outlooktasks",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Logic/workflows",
+            "apiVersion": "2017-07-01",
+            "name": "[parameters('workflows_LogicAppTaskCreatorSequence_name')]",
+            "location": "westeurope",
+            "properties": {
+                "state": "Enabled",
+                "definition": {
+                    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {
+                        "$connections": {
+                            "defaultValue": {},
+                            "type": "Object"
+                        }
+                    },
+                    "triggers": {
+                        "manual": {
+                            "type": "Request",
+                            "kind": "Http",
+                            "inputs": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "data": {
+                                                "properties": {
+                                                    "body": {
+                                                        "properties": {
+                                                            "DeviceCategory": {
+                                                                "type": "string"
+                                                            },
+                                                            "DeviceId": {
+                                                                "type": "string"
+                                                            },
+                                                            "EnergyConsumption": {
+                                                                "type": "integer"
+                                                            },
+                                                            "Pressure": {
+                                                                "type": "number"
+                                                            },
+                                                            "Sequence": {
+                                                                "type": "integer"
+                                                            },
+                                                            "TelemetryId": {
+                                                                "type": "string"
+                                                            },
+                                                            "TelemetryTimeStamp": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "properties": {
+                                                        "properties": {
+                                                            "Error": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "systemProperties": {
+                                                        "properties": {
+                                                            "iothub-connection-auth-generation-id": {
+                                                                "type": "string"
+                                                            },
+                                                            "iothub-connection-auth-method": {
+                                                                "type": "string"
+                                                            },
+                                                            "iothub-connection-device-id": {
+                                                                "type": "string"
+                                                            },
+                                                            "iothub-content-encoding": {
+                                                                "type": "string"
+                                                            },
+                                                            "iothub-content-type": {
+                                                                "type": "string"
+                                                            },
+                                                            "iothub-enqueuedtime": {
+                                                                "type": "string"
+                                                            },
+                                                            "iothub-message-source": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "dataVersion": {
+                                                "type": "string"
+                                            },
+                                            "eventTime": {
+                                                "type": "string"
+                                            },
+                                            "eventType": {
+                                                "type": "string"
+                                            },
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "metadataVersion": {
+                                                "type": "string"
+                                            },
+                                            "subject": {
+                                                "type": "string"
+                                            },
+                                            "topic": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "id",
+                                            "topic",
+                                            "subject",
+                                            "eventType",
+                                            "data",
+                                            "dataVersion",
+                                            "metadataVersion",
+                                            "eventTime"
+                                        ],
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                }
+                            }
+                        }
+                    },
+                    "actions": {
+                        "For_each": {
+                            "foreach": "@triggerBody()",
+                            "actions": {
+                                "Condition": {
+                                    "actions": {
+                                        "Create_a_task_(V2)": {
+                                            "runAfter": {},
+                                            "type": "ApiConnection",
+                                            "inputs": {
+                                                "body": {
+                                                    "Body": {
+                                                        "Content": "<p>Energy Consumption: @{items('For_each')?['data']?['body']?['EnergyConsumption']} <br>\nSequence: @{items('For_each')?['data']?['body']?['Sequence']} <br>\nEnqueued Time: @{items('For_each')?['data']?['systemProperties']?['iothub-enqueuedtime']}<br>\nLogic App Time: @{utcNow()}</p>",
+                                                        "ContentType": "HTML"
+                                                    },
+                                                    "DueDateTime": {
+                                                        "TimeZone": "UTC"
+                                                    },
+                                                    "Importance": "Normal",
+                                                    "ReminderDateTime": {
+                                                        "TimeZone": "UTC"
+                                                    },
+                                                    "StartDateTime": {
+                                                        "TimeZone": "UTC"
+                                                    },
+                                                    "Subject": "Device EnergyConsumption Warning | Device: @{items('For_each')?['data']?['body']?['DeviceId']}"
+                                                },
+                                                "host": {
+                                                    "connection": {
+                                                        "name": "@parameters('$connections')['outlooktasks']['connectionId']"
+                                                    }
+                                                },
+                                                "method": "post",
+                                                "path": "/v2/tasks",
+                                                "queries": {
+                                                    "folderId": "AQMkADAwATMwMAItOTIwMS0xYjE1LTAwAi0wMAoALgAAA8xVxToA56NJnc6INwG1XQcBAJXmckviyqpJrQGKndsDtTEAAAIBEgAAAA=="
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "runAfter": {},
+                                    "expression": {
+                                        "and": [
+                                            {
+                                                "greater": [
+                                                    "@items('For_each')?['data']?['body']?['EnergyConsumption']",
+                                                    20
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    "type": "If"
+                                }
+                            },
+                            "runAfter": {},
+                            "type": "Foreach"
+                        }
+                    },
+                    "outputs": {}
+                },
+                "parameters": {
+                    "$connections": {
+                        "value": {
+                            "outlooktasks": {
+                                "connectionId": "[parameters('connections_outlooktasks_externalid')]",
+                                "connectionName": "outlooktasks",
+                                "id": "/subscriptions/25838890-c3d7-41ff-ad7f-829a1694cf90/providers/Microsoft.Web/locations/westeurope/managedApis/outlooktasks"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}
