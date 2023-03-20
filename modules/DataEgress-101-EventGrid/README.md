@@ -1,5 +1,8 @@
 # IoT Production Training Pack - DataEgress - Event Grid Code Sample
 
+## Main Page
+This repo is part of the [IoT Production Training Pack](https://azure.github.io/IoTTrainingPack/). Please check the home page for the training pack for further information.
+
 ## Example Code
 
 ### Tools
