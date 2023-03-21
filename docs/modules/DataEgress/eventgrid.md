@@ -1,8 +1,9 @@
 ---
-title: Data Egress Routing
+title: Event Grid Integration
 has_children: false
 nav_order: 2
-parent: IoT Production Training Pack
+parent: Data Egress
+grand_parent: IoT Production Training Pack
 ---
 
 # Data Egress - Event Grid integration

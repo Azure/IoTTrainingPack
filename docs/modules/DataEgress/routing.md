@@ -1,11 +1,12 @@
 ---
-title: Data Egress Routing
+title: Routing
 has_children: false
-nav_order: 2
-parent: IoT Production Training Pack
+nav_order: 1
+parent: Data Egress
+grand_parent: IoT Production Training Pack
 ---
 
-# Data Egress Routing
+# Data Egress - Routing
 
 ## Overview
 
