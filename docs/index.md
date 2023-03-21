@@ -32,9 +32,9 @@ The Training Pack focuses on the following independent modules:
 * [Certificates](modules/Certificates101/index.md): A proper understanding of certificates and their use is critical for
 a production IoT deployment.
 
-* Data Egress: This module covers multiple ways to egress data from IoT Hub
-  * [IoT Hub Routes](modules/DataEgress.Routing/index.md) provides and overview and gives best practices how IoT Hub's data routing functionality can be used to ***push*** data to other Azure PaaS services like Service Bus, Event Hubs or Azure Storage. It highlights how messages ingested to IoT Hub can be enriched and how messages can be filtered.
-  * [Event Grid integration](modules/DataEgress.EventGrid/index.md): provides and overview how the IoT Hub Event Grid integration can be used to ***push*** data to other Azure PaaS services.
+* [Data Egress](modules/DataEgress/index.md): This module covers multiple ways to egress data from IoT Hub
+  * [IoT Hub Routes](modules/DataEgress/routing.md) provides and overview and gives best practices how IoT Hub's data routing functionality can be used to ***push*** data to other Azure PaaS services like Service Bus, Event Hubs or Azure Storage. It highlights how messages ingested to IoT Hub can be enriched and how messages can be filtered.
+  * [Event Grid integration](modules/DataEgress/eventgrid.md): provides and overview how the IoT Hub Event Grid integration can be used to ***push*** data to other Azure PaaS services.
   * Service Endpoints: Will be provided soon.
 
 * [DevOps for Azure IoT](modules/DevOps/index.md): Azure IoT and DevOps can work together to build scalable, reliable, and secure IoT solutions using CI/CD (Continuous Integration and Continuous Delivery) and IaC (Infrastructure as Code).
