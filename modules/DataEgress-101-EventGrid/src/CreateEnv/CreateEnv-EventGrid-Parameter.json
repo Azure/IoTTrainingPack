@@ -1,0 +1,13 @@
+{
+  "parameters": {
+    "IoTHubName": {
+        "value": "IoTHubDataEgress"
+    },
+    "EventGridTopicName": {
+      "value": "IoTHubEvents"
+    }, 
+    "LogicAppTaskCreatorName": {
+        "value": "LogicAppTaskCreator"
+    }
+  }
+}

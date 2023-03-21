@@ -1,7 +1,6 @@
-# IoT Production Training Pack - DataEgress Routing Code Samples
+# IoT Production Training Pack - DataEgress - Event Grid Code Sample
 
 ## Main Page
-
 This repo is part of the [IoT Production Training Pack](https://azure.github.io/IoTTrainingPack/). Please check the home page for the training pack for further information.
 
 ## Example Code
@@ -15,5 +14,6 @@ This repo is part of the [IoT Production Training Pack](https://azure.github.io/
 
 ### Code
 
-* [Create and Test Environment](./CLI/): Azure CLI using Powershell to create basic Azure services (IoT Hub, Storage Account) and step-by-step guidance to create Azure IoT Hub endpoints, IoT Hub routing, Message Enrichment and to test the environment.
-* [Send data to IoT Hub](./src/DataIngest-DeviceSimulator/): simplified c# app
+* [Create and Test Environment](src/CreateEnv/): Azure CLI using Powershell to create Azure services (IoT Hub, Logic App etc.) and step-by-step guidance to create Azure Logic App, IoT Hub Routing and info to test the environment.
+
+* [Send data to IoT Hub](src/DataIngest-DeviceSimulator/): simplified c# app to simulate device to cloud messages
