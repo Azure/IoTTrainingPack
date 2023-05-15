@@ -88,8 +88,6 @@ gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into t
 
 exclude: ["node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "package.json", "package-lock.json",  "script/", "LICENSE.txt", "lib/", "bin/", "README.md", "Rakefile", "docs/tests/"]
 
-include: ["BingSiteAuth.xml"]
-
 # Back to top link
 back_to_top: true
 back_to_top_text: "Back to top"
@@ -106,3 +104,7 @@ aux_links_new_tab: true
 
 mermaid:
   version: "9.3.0"
+
+webmaster_verifications:
+  google: UwuePXaG0ViJC8kT8nUqpRUlQkglvYHnh82Q-OsxG4g
+  bing: 3059AD81CB8A1AD3756AE909B5B21E46
