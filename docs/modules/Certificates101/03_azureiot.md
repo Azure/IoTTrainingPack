@@ -69,7 +69,10 @@ but is instead acting as its own identification mechanism. If the TPM is
 being used to store a certificate, which is then used to attest to the
 device identity, then the nonce challenge mechanism is not being used,
 and the next option, through the use of an X.509 certificate, applies.
-As this topic is focusing on certificate use cases,
+As this topic is focusing on certificate use cases, there's no more
+discussion of this topic here, but refer to the
+[documentation](https://learn.microsoft.com/azure/iot-dps/concepts-tpm-attestation)
+for more information, if desired.
 
 ### X.509 certificates
 
