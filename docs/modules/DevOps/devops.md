@@ -1,6 +1,6 @@
 ---
 title: DevOps
-description: DevOps Overview
+description: An overview of the concepts of DevOps and Infrastucture-as-Code (IaC).
 author: Chris Ayers
 ms.author: chrisayers
 ms.date: 02/06/2023
@@ -9,7 +9,7 @@ ms.service: iothub
 services: iothub
 nav_order: 1
 parent: DevOps for Azure IoT
-grand_parent: IoT Production Training Pack
+grand_parent: Home
 has_children: false
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Create and manage IoT Edge devices
 parent: IoT Edge 101
-grand_parent: IoT Production Training Pack
+grand_parent: Home
 nav_order: 3
 ---
 
@@ -376,7 +376,7 @@ For details, see [Prepare to deploy your solution in production - Azure
 IoT Edge \| Microsoft
 Learn](https://learn.microsoft.com/en-us/azure/iot-edge/production-checklist?view=iotedge-1.4)
 
-# Sample: Check your IoT Edge device production readiness
+## Sample: Check your IoT Edge device production readiness
 
 In this section we will be showing how you can verify your IoT Edge
 device by running the ‘check’ command on your device. This command
@@ -412,7 +412,7 @@ following commands from shell.
 <tbody>
 <tr class="odd">
 <td>Verify IoT Edge status</td>
-<td><p><strong>$ sudo iotedge system status</strong></p>
+<td><p><strong><pre>$ sudo iotedge system status</pre></strong></p>
 <p><img src="./media/image9.png"
 style="width:3.35419in;height:1.01042in" /></p></td>
 </tr>

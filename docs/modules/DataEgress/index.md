@@ -2,7 +2,7 @@
 title: Data Egress
 has_children: true
 nav_order: 2
-parent: IoT Production Training Pack
+parent: Home
 ---
 
 # Data Egress

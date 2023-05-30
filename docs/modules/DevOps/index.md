@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: iothub
 services: iothub
 nav_order: 3
-parent: IoT Production Training Pack
+parent: Home
 has_children: true
 ---
 

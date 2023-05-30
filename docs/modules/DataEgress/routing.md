@@ -3,7 +3,7 @@ title: Routing
 has_children: false
 nav_order: 1
 parent: Data Egress
-grand_parent: IoT Production Training Pack
+grand_parent: Home
 ---
 
 # Data Egress - Routing

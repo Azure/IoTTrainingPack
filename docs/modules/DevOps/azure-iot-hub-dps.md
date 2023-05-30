@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub DPS
-description: Azure IoT Hub DPS
+description: Discusses implementing DevOps when using Azure IoT Hub Device Provisioning Service (DPS).
 author: Chris Ayers
 ms.author: chrisayers
 ms.date: 02/06/2023
@@ -9,7 +9,7 @@ ms.service: iot
 services: iot
 nav_order: 5
 parent: DevOps for Azure IoT
-grand_parent: IoT Production Training Pack
+grand_parent: Home
 has_children: false
 ---
 

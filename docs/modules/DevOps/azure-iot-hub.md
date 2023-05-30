@@ -9,7 +9,7 @@ ms.service: iot
 services: iot
 nav_order: 4
 parent: DevOps for Azure IoT
-grand_parent: IoT Production Training Pack
+grand_parent: Home
 has_children: false
 ---
 

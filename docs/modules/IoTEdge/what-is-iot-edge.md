@@ -1,7 +1,7 @@
 ---
 title: What is Azure IoT Edge
 parent: IoT Edge 101
-grand_parent: IoT Production Training Pack
+grand_parent: Home
 nav_order: 2
 ---
 

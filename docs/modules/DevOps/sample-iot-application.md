@@ -1,6 +1,6 @@
 ---
-title: Sample Azure IoT Application Architecture
-description: Sample Azure IoT Application Architecture
+title: Sample Azure IoT App Architecture
+description: A sample Azure IoT application architecture.
 author: Chris Ayers
 ms.author: chrisayers
 ms.date: 02/06/2023
@@ -9,7 +9,7 @@ ms.service: iot
 services: iot
 nav_order: 3
 parent: DevOps for Azure IoT
-grand_parent: IoT Production Training Pack
+grand_parent: Home
 has_children: false
 ---
 

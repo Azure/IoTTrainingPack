@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 nav_order: 4
-parent: IoT Production Training Pack
+parent: Home
 has_children: true
 ---
 

@@ -9,7 +9,7 @@ ms.service: iot
 services: iot
 nav_order: 1
 parent: Certificates 101
-grand_parent: IoT Production Training Pack
+grand_parent: Home
 has_children: false
 ---
 

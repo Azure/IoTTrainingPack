@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: iot
 services: iot
 nav_order: 1
-parent: IoT Production Training Pack
+parent: Home
 has_children: true
 ---
 

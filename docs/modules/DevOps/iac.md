@@ -9,7 +9,7 @@ ms.service: arm, bicep, terraform, cli, PowerShell
 services: arm, bicep, terraform, cli, PowerShell
 nav_order: 2
 parent: DevOps for Azure IoT
-grand_parent: IoT Production Training Pack
+grand_parent: Home
 has_children: false
 ---
 
@@ -17,7 +17,7 @@ has_children: false
 
 Infrastructure as Code (IaC) is the management of infrastructure (networks, virtual machines, load balancers, and connection topology) in a descriptive model, using version control to store the files.​
 
-# Why use Infrastructure as Code (IaC)?
+## Why use Infrastructure as Code (IaC)?
 
 In code, you define the infrastructure that needs to be deployed. The infrastructure code becomes part of your project. Just like the application code, you store the infrastructure code in a source repository and version it. Anyone on your team can run the code and deploy similar environments.
 
@@ -28,7 +28,7 @@ Using infrastructure as code in Azure has many benefits, such as:
 - **Scalability**: You can easily provision new environments or infrastructure from your IaC configuration code, and scale them up or down as needed. This reduces the manual effort and human error involved in managing infrastructure.
 - **Consistency**: You can use tools like Bicep, Azure Resource Manager (ARM), Terraform, or Azure CLI to declaratively script the cloud infrastructure you require, and ensure that the same environment is generated every time you deploy. This reduces the risk of configuration drift or mismatched dependencies.
 
-# What Infrastructure as Code (IaC) are available Azure?
+## What Infrastructure as Code (IaC) are available Azure?
 
 | Tool | Description | Pros | Cons |
 | --- | --- | --- | --- |

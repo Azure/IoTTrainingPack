@@ -3,7 +3,7 @@ title: Event Grid Integration
 has_children: false
 nav_order: 2
 parent: Data Egress
-grand_parent: IoT Production Training Pack
+grand_parent: Home
 ---
 
 # Data Egress - Event Grid integration
