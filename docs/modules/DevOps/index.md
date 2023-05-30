@@ -1,6 +1,6 @@
 ---
 title: DevOps for Azure IoT
-description: DevOps for Azure IoT
+description: An introduction to using DevOps with the Azure IoT platform.
 author: Chris Ayers
 ms.author: chrisayers
 ms.date: 02/06/2023

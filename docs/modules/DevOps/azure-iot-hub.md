@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub
-description: Azure IoT Hub
+description: How to use DevOps when using Azure IoT Hub in your architecture
 author: Chris Ayers
 ms.author: chrisayers
 ms.date: 02/06/2023
