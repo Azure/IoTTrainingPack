@@ -55,10 +55,58 @@ can also use other Moby open-source project based or compatible
 container engines, but Microsoft will provide best-effort support in
 this case.
 
+## Hardware Requirements
+
+Despite there are no explicit or concrete hardware requirements to
+execute IoT Edge runtime in the chosen platform, be mindful of having
+enough computing resources (CPU, memory, hard disk & network bandwidth)
+for your workload. IoT Edge runtime can be installed in a wide range of
+devices, just ensure it performs as expected for your requirements.
+
+You can review this is interesting blog post on [Stretching the IoT Edge
+performance
+limits](https://techcommunity.microsoft.com/t5/internet-of-things-blog/stretching-the-iot-edge-performance-limits/ba-p/2993856)
+to get good insights and considerations regarding performance,
+scalability, latency and the relationship with hardware capabilities.
+
 ## Device setup and provisioning
 
-In general, to set up an IoT edge device, you need to complete the
-following tasks:
+Device provisioning is an important stage within the device’s lifecycle.
+There's a set of general device management stages that are common to all
+enterprise IoT projects. For Azure IoT, there are five stages within the
+device lifecycle: Plan, Provision, Configure, Monitor, Retire. Each
+stage includes goals and activities related to:
+
+- Plan: Define a metadata scheme to enable query your repository for
+  bulk management operations. You can use the device twin to store this
+  device metadata in the form of tags and properties.
+
+- Provision: Securely provision new devices to IoT Hub and enable
+  operators to immediately discover device capabilities. Use the IoT Hub
+  identity registry to create flexible device identities and credentials
+  and perform this operation in bulk by using the IoT Hub Device
+  Provisioning Service or an IoT Hub job. Build devices to report their
+  capabilities and conditions through device properties in the device
+  twin. This is the target of this section.
+
+- Configure: Consider facilitating bulk configuration changes and
+  firmware updates to devices while maintaining both health and
+  security. Perform these device management operations in bulk by using
+  desired properties or with direct methods and broadcast jobs.
+
+- Monitor: Monitor overall device collection health, the status of
+  ongoing operations, and alert operators to issues that might require
+  their attention. Apply the device twin to allow devices to report
+  real-time operating conditions and status of update operations.
+
+- Retire: Replace or decommission devices after a failure, upgrade
+  cycle, or at the end of the service lifetime. Use the device twin to
+  maintain device info if the physical device is being replaced or
+  archived if being retired. Use the IoT Hub identity registry for
+  securely revoking device identities and credentials.
+
+Regarding the provision stage, to set up an IoT edge device, you need to
+complete the following tasks:
 
 - Provision your IoT Edge device in IoT Hub.
 
@@ -187,6 +235,11 @@ aware of both IoT Edge and IoT Hub limits and restrictions as there are
 limits that apply to the interactions of both, for example limits that
 apply to message size, telemetry frequency, twin updates, direct
 methods, etc.; or limitations that might impact your design.
+
+Consider this limits are designed to enable solution designers to create
+efficient cost-effective solutions, leaning your architecture and design
+towards optimized models to ensure an efficient usage of available
+resources.
 
 For IoT Hub, it is also interesting to be aware of the limits, as those
 vary depending on the selected SKU and the number of instances you have
@@ -376,7 +429,7 @@ For details, see [Prepare to deploy your solution in production - Azure
 IoT Edge \| Microsoft
 Learn](https://learn.microsoft.com/en-us/azure/iot-edge/production-checklist?view=iotedge-1.4)
 
-## Sample: Check your IoT Edge device production readiness
+# Sample: Check your IoT Edge device production readiness
 
 In this section we will be showing how you can verify your IoT Edge
 device by running the ‘check’ command on your device. This command
@@ -413,27 +466,27 @@ following commands from shell.
 <tr class="odd">
 <td>Verify IoT Edge status</td>
 <td><p><strong><pre>$ sudo iotedge system status</pre></strong></p>
-<p><img src="./media/image9.png"
+<p><img src="./media/image11.png"
 style="width:3.35419in;height:1.01042in" /></p></td>
 </tr>
 <tr class="even">
 <td>Check deployed modules</td>
 <td><p><strong>$ sudo iotedge list</strong></p>
-<p><img src="./media/image10.png"
+<p><img src="./media/image12.png"
 style="width:4.96358in;height:0.63542in" /></p></td>
 </tr>
 <tr class="odd">
 <td>Check telemetry sent</td>
 <td><p><strong>$ sudo iotedge logs SimulatedTemperatureSensor
 -f</strong></p>
-<p><img src="./media/image11.png"
+<p><img src="./media/image13.png"
 style="width:4.53477in;height:1.54345in" /></p></td>
 </tr>
 <tr class="odd">
 <td>Now use the ‘iotedge check’ command to verify the connectivity and
 production readiness of this IoT Edge device:</td>
 <td><p><strong>$ sudo iotedge check</strong></p>
-<p><img src="./media/image12.png"
+<p><img src="./media/image14.png"
 style="width:4.72441in;height:5.91308in"
 alt="Text Description automatically generated" /></p></td>
 </tr>
@@ -502,19 +555,19 @@ deployment manifest. We are going to use the global approach.</p></td>
 <td>Add or edit a <em>daemon.json</em> file in the <em>/etc/docker</em>
 directory.</td>
 <td><p><strong>$ sudo vi /etc/docker/daemon.json</strong></p>
-<p><img src="./media/image13.png"
+<p><img src="./media/image15.png"
 style="width:4.02607in;height:0.66146in" /></p></td>
 </tr>
 <tr class="odd">
 <td>Add the following content to define the DNS and local logging driver
 configuration.</td>
-<td><img src="./media/image14.png"
+<td><img src="./media/image16.png"
 style="width:4.0477in;height:1.54705in" /></td>
 </tr>
 <tr class="even">
 <td>Restart the container engine for the updates to take effect.</td>
 <td><p><strong>$ sudo systemctl restart docker</strong></p>
-<p><img src="./media/image15.png"
+<p><img src="./media/image17.png"
 style="width:4.3553in;height:1.79123in"
 alt="Text Description automatically generated" /></p></td>
 </tr>
@@ -543,31 +596,31 @@ the correct permissions</a> for the TemperatureModule folder.</td>
 <tr class="even">
 <td>Now, from the Azure Porta, open the edge device configuration and
 click on “Set Modules”.</td>
-<td><img src="./media/image16.png"
+<td><img src="./media/image18.png"
 style="width:3.20861in;height:1.77515in" /></td>
 </tr>
 <tr class="odd">
 <td>Click on “Runtime Settings” to provide the configuration for the
 Edge Agent and Edge Hub modules.</td>
-<td><img src="./media/image17.png"
+<td><img src="./media/image19.png"
 style="width:3.0586in;height:1.60014in" /></td>
 </tr>
 <tr class="even">
 <td>For the Edge Agent, define the <em>storageFolder</em> environment
 variable pointing to the module storage path <em>/tmp/storage</em></td>
-<td><img src="./media/image18.png"
+<td><img src="./media/image20.png"
 style="width:4.25393in;height:1.33068in" /></td>
 </tr>
 <tr class="odd">
 <td>Now define the Container Create Options to bind the module storage
 path to the host storage folder.</td>
-<td><img src="./media/image19.png"
+<td><img src="./media/image21.png"
 style="width:4.45953in;height:1.6489in" /></td>
 </tr>
 <tr class="even">
 <td>Repeat the steps for the Edge Hub. First, the environment variable
 pointing to the local storage path.</td>
-<td><img src="./media/image18.png"
+<td><img src="./media/image20.png"
 style="width:4.25393in;height:1.33068in" /></td>
 </tr>
 <tr class="odd">
@@ -575,51 +628,51 @@ style="width:4.25393in;height:1.33068in" /></td>
 storage folders.</p>
 <p>In this case, the edgeHub contains some predefined configuration, be
 careful to preserve the document correctness.</p></td>
-<td><img src="./media/image20.png"
+<td><img src="./media/image22.png"
 style="width:4.2057in;height:2.32234in" /></td>
 </tr>
 <tr class="even">
 <td>Apply the changes.</td>
-<td><img src="./media/image21.png"
+<td><img src="./media/image23.png"
 style="width:1.9685in;height:0.44313in" /></td>
 </tr>
 <tr class="odd">
 <td>Now, we will configure the TemperatureSensor module.</td>
-<td><img src="./media/image22.png"
+<td><img src="./media/image24.png"
 style="width:3.0586in;height:1.60014in" /></td>
 </tr>
 <tr class="even">
 <td>Define the environment variable.</td>
-<td><img src="./media/image23.png"
+<td><img src="./media/image25.png"
 style="width:4.3646in;height:1.33562in" /></td>
 </tr>
 <tr class="odd">
 <td>And the Container Create Options.</td>
-<td><img src="./media/image24.png"
+<td><img src="./media/image26.png"
 style="width:3.95242in;height:2.50397in" /></td>
 </tr>
 <tr class="even">
 <td>Apply the changes again.</td>
-<td><img src="./media/image21.png"
+<td><img src="./media/image23.png"
 style="width:1.9685in;height:0.44313in" /></td>
 </tr>
 <tr class="odd">
 <td>We are not going to change any route, so you can go directly to
 “Review + create” step</td>
-<td><img src="./media/image25.png"
+<td><img src="./media/image27.png"
 style="width:3.27321in;height:1.88753in" /></td>
 </tr>
 <tr class="even">
 <td>We can review the deployment manifest. And then create the
 deployment.</td>
-<td><img src="./media/image26.png"
+<td><img src="./media/image28.png"
 style="width:3.85556in;height:3.80071in" /></td>
 </tr>
 <tr class="odd">
 <td>After few moments, the configurations will be applied in the device,
 so we can execute again the ‘iotedge check’ command.</td>
 <td><p><strong>$ sudo iotedge check</strong></p>
-<p><img src="./media/image27.png"
+<p><img src="./media/image29.png"
 style="width:4.72441in;height:5.43812in"
 alt="Text Description automatically generated" /></p></td>
 </tr>

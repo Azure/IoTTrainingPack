@@ -124,7 +124,7 @@ possible, such as a back-end service sending commands to your devices.
   the reported properties** accordingly, so the solution backend can
   read them or received the notifications.
 
-    For further information, see [Understand Azure IoT Hub device twins \|
+  For further information, see [Understand Azure IoT Hub device twins \|
 Microsoft
 Learn](https://learn.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins)
 
@@ -136,7 +136,7 @@ Learn](https://learn.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins)
   for each module that you connect to IoT Hub, no matter if it is an
   edge device or a regular one.
 
-    For further information, see [Understand Azure IoT Hub module twins \|
+  For further information, see [Understand Azure IoT Hub module twins \|
 Microsoft
 Learn](https://learn.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins)
 
@@ -146,3 +146,6 @@ Learn](https://learn.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins)
   properties), while C2D follows the contrary path, that is,
   communications originated at the cloud which flows to the devices
   (usually representing device commands or device desired properties).
+
+Also, do not hesitate to review our [Glossary of IoT
+Terms](https://learn.microsoft.com/azure/iot/iot-glossary).
