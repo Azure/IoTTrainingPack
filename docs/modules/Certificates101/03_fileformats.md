@@ -1,9 +1,9 @@
 ---
-title: Azure IoT
+title: Certificate file formats
 description: An introduction to digital certificates.
 author: Michael C. Bazarewsky
 ms.author: micbaz
-ms.date: 02/06/2023
+ms.date: 07/07/2023
 ms.topic: conceptual
 ms.service: iot
 services: iot
