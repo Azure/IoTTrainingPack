@@ -429,7 +429,7 @@ For details, see [Prepare to deploy your solution in production - Azure
 IoT Edge \| Microsoft
 Learn](https://learn.microsoft.com/en-us/azure/iot-edge/production-checklist?view=iotedge-1.4)
 
-# Sample: Check your IoT Edge device production readiness
+## Sample: Check your IoT Edge device production readiness
 
 In this section we will be showing how you can verify your IoT Edge
 device by running the ‘check’ command on your device. This command
