@@ -16,3 +16,5 @@ has_children: true
 
 A proper understanding of certificates and their use is critical for
 a production IoT deployment.
+
+[![Watch the video](media/Certificates%20101.jpg)](https://aka.ms/Certificates101)
