@@ -12,6 +12,10 @@ The IoT Production Training Pack can help you to implement best practices, use t
 
 The IoT Production Training Pack is modular so you can jump to any section of interest or start at the beginning. The slides, demos and source code for each module are shared with a creative commons (with attribution) license to help your organization build effective IoT solutions With Azure IoT.
 
+## Important maintenance note
+
+The team that managed this pack and owned it has been disbanded; thus, this project is being archived.  The content present is still accurate, so this content will be kept live.  Thank you for your understanding.
+
 ## Overview
 
 A typical IoT scenario consists of:
